@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvawk2vpl1hjl"]
+
+[ext_resource type="Texture2D" uid="uid://blq4ilfeo8h10" path="res://fish.svg" id="1_6yim1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o181e"]
+size = Vector2(116, 36)
+
+[node name="Fish" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6yim1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o181e")

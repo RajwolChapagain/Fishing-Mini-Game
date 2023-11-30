@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdoobp6pin4av"]
+
+[ext_resource type="Texture2D" uid="uid://cyw5od4jmgyh" path="res://icon.svg" id="1_8otmp"]
+
+[node name="Fisherman" type="Sprite2D"]
+texture = ExtResource("1_8otmp")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-102, -95)

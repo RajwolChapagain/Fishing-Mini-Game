@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://fisherman.gd" id="2_jkpsw"]
 
 [node name="Fisherman" type="Sprite2D"]
+position = Vector2(400, 400)
 texture = ExtResource("1_8otmp")
 script = ExtResource("2_jkpsw")
 

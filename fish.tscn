@@ -19,7 +19,15 @@ texture = ExtResource("1_6yim1")
 shape = SubResource("RectangleShape2D_o181e")
 
 [node name="VisionRadius" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionRadius"]
 shape = SubResource("CircleShape2D_oh6cj")
 debug_color = Color(0.945098, 0.105882, 0.52549, 0.419608)
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="area_entered" from="VisionRadius" to="." method="_on_vision_radius_area_entered"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

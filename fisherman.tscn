@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdoobp6pin4av"]
+[gd_scene load_steps=4 format=3 uid="uid://bdoobp6pin4av"]
 
 [ext_resource type="Texture2D" uid="uid://cyw5od4jmgyh" path="res://icon.svg" id="1_8otmp"]
 [ext_resource type="Script" path="res://fisherman.gd" id="2_jkpsw"]
+[ext_resource type="Texture2D" uid="uid://73joyn7u5fnm" path="res://bobber.svg" id="3_1a8p6"]
 
 [node name="Fisherman" type="Sprite2D"]
 position = Vector2(400, 400)
@@ -10,3 +11,7 @@ script = ExtResource("2_jkpsw")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-102, -95)
+
+[node name="Bobber" type="Sprite2D" parent="."]
+position = Vector2(-102, -95)
+texture = ExtResource("3_1a8p6")

@@ -8,4 +8,4 @@ func _input(event):
 	
 func throw_fishing_line(pos):
 	if pos.x < $Marker2D.global_position.x and pos.y > water_level:
-		print("fishing line thrown")
+		$Bobber.global_position = pos

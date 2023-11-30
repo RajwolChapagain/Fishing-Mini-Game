@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2cb00obmhn3l"]
+
+[ext_resource type="PackedScene" uid="uid://bdoobp6pin4av" path="res://fisherman.tscn" id="1_dtfvh"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Fisherman" parent="." instance=ExtResource("1_dtfvh")]
+position = Vector2(1715, 269)

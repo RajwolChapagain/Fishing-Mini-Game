@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://73joyn7u5fnm" path="res://bobber.svg" id="3_1a8p6"]
 
 [node name="Fisherman" type="Sprite2D"]
-position = Vector2(400, 400)
 texture = ExtResource("1_8otmp")
 script = ExtResource("2_jkpsw")
 

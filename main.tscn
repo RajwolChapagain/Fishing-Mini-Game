@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2cb00obmhn3l"]
+[gd_scene load_steps=5 format=3 uid="uid://c2cb00obmhn3l"]
 
 [ext_resource type="PackedScene" uid="uid://bdoobp6pin4av" path="res://fisherman.tscn" id="1_dtfvh"]
 [ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://fish.tscn" id="2_yn54d"]
+[ext_resource type="Texture2D" uid="uid://c83khtkssquwj" path="res://shore.svg" id="3_55j4r"]
+[ext_resource type="Texture2D" uid="uid://bwl1p2mgpb74" path="res://water.svg" id="4_0fkf5"]
 
 [node name="Main" type="Node2D"]
 
@@ -10,3 +12,11 @@ position = Vector2(1715, 269)
 
 [node name="Fish" parent="." instance=ExtResource("2_yn54d")]
 position = Vector2(443, 740)
+
+[node name="Shore" type="Sprite2D" parent="."]
+position = Vector2(1770, 732)
+texture = ExtResource("3_55j4r")
+
+[node name="Water" type="Sprite2D" parent="."]
+position = Vector2(810, 744)
+texture = ExtResource("4_0fkf5")

@@ -8,6 +8,8 @@ var clicks_to_pull = 0:
 		return clicks_to_pull
 	set(value):
 		clicks_to_pull = clamp(value, 0, 100)
+var small_fish_caught = 0
+var medium_fish_caught = 0
 
 func _input(event):
 	if event.is_action_pressed("throw_line"):
@@ -42,4 +44,12 @@ func decrement_clicks_to_pull(clicks):
 func catch_hooked_fish():
 	for area in $Bobber.get_overlapping_areas():
 		if area.is_in_group("fish"):
-			area.queue_free()
+			if area.is_in_group("small_fish"):
+				small_fish_caught += 1
+			elif area.is_in_group("medium_fish"):
+				medium_fish_caught += 1
+			elif area.is_in_group("big_fish"):
+				clear_level()
+				
+func clear_level():
+	print("Level cleared")

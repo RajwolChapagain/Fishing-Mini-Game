@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed = 400
 @export var move_radius = 400
+@export var clicks_to_catch = 1
 
 @onready var target = global_position
 
@@ -28,3 +29,9 @@ func _on_move_timer_timeout():
 func clamp_position():
 	global_position.x = clamp(global_position.x, 0, shore_line)
 	global_position.y = clamp(global_position.y, water_level, get_viewport_rect().size.y)
+
+func set_water_level(level):
+	water_level = level
+	
+func set_shore_line(line):
+	shore_line = line

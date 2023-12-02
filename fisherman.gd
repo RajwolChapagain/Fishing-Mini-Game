@@ -11,6 +11,10 @@ var clicks_to_pull = 0:
 var small_fish_caught = 0
 var medium_fish_caught = 0
 
+signal caught_small_fish(small_fish_count)
+signal caught_medium_fish(medium_fish_count)
+signal caught_large_fish
+
 func _input(event):
 	if event.is_action_pressed("throw_line"):
 		if is_thrown:
@@ -46,10 +50,9 @@ func catch_hooked_fish():
 		if area.is_in_group("fish"):
 			if area.is_in_group("small_fish"):
 				small_fish_caught += 1
+				caught_small_fish.emit(small_fish_caught)
 			elif area.is_in_group("medium_fish"):
 				medium_fish_caught += 1
+				caught_medium_fish.emit(medium_fish_caught)
 			elif area.is_in_group("big_fish"):
-				clear_level()
-				
-func clear_level():
-	print("Level cleared")
+				caught_large_fish.emit()

@@ -27,4 +27,7 @@ texture = ExtResource("3_hdq74")
 position = Vector2(810, 744)
 texture = ExtResource("4_fjsdl")
 
+[connection signal="caught_large_fish" from="Fisherman" to="." method="_on_fisherman_caught_large_fish"]
+[connection signal="caught_medium_fish" from="Fisherman" to="." method="_on_fisherman_caught_medium_fish"]
+[connection signal="caught_small_fish" from="Fisherman" to="." method="_on_fisherman_caught_small_fish"]
 [connection signal="fish_spawned" from="Spawner" to="." method="_on_spawner_fish_spawned"]

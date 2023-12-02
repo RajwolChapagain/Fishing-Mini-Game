@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://blho12h52avuq"]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_7b0xr"]
+[ext_resource type="Texture2D" uid="uid://bcp43dkirynbp" path="res://level1/goldfish_L1.png" id="1_67x7i"]
+[ext_resource type="Texture2D" uid="uid://b2ic1uxpe3v7s" path="res://level1/arowana_L1.png" id="2_7lpfh"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7b0xr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 143.0
+offset_bottom = 60.0
+
+[node name="SmallCaught" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="SmallToCatch" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "/ 5"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_67x7i")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 20.0
+offset_right = 284.0
+offset_bottom = 60.0
+
+[node name="MediumCaught" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="MediumToCatch" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "/ 5"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_7lpfh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="NumClicks" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 137.0
+offset_right = 20.0
+offset_bottom = 179.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

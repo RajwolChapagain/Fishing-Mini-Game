@@ -3,14 +3,19 @@ extends Area2D
 @export var speed = 400
 @export var move_radius = 400
 @export var clicks_to_catch = 1
-
+@export var escape_time = 3
 @onready var target = global_position
 
 var water_level = 0
 var shore_line = 1000
+var hooked = false
 
+func _ready():
+	$EscapeTimer.wait_time = escape_time
+	
 func _physics_process(_delta):
-	move_to_target()
+	if not hooked:
+		move_to_target()
 	clamp_position() #Below water level and to the left of the shoreline
 	
 func move_to_target():
@@ -35,3 +40,15 @@ func set_water_level(level):
 	
 func set_shore_line(line):
 	shore_line = line
+
+
+func _on_area_entered(area):
+	if area.name == "Bobber":
+		hooked = true
+		$MoveTimer.stop()
+		$EscapeTimer.start()
+		
+func _on_escape_timer_timeout():
+	hooked = false
+	target += Vector2(-400, 400)
+	$MoveTimer.start()

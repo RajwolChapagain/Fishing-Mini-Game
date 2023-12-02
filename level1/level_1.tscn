@@ -24,3 +24,5 @@ texture = ExtResource("3_hdq74")
 [node name="Water" type="Sprite2D" parent="."]
 position = Vector2(810, 744)
 texture = ExtResource("4_fjsdl")
+
+[connection signal="fish_spawned" from="Spawner" to="." method="_on_spawner_fish_spawned"]

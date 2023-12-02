@@ -6,6 +6,8 @@ extends Timer
 var water_level
 var shore_line
 
+signal fish_spawned(fish)
+
 func _on_timeout():
 	if fishes.size() != 0:
 		var fish = fishes.pick_random().instantiate()
@@ -15,3 +17,4 @@ func _on_timeout():
 		fish.set_water_level(water_level)
 		fish.set_shore_line(shore_line)
 		add_child(fish)
+		fish_spawned.emit(fish)

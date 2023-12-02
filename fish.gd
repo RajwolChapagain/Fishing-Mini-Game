@@ -10,6 +10,9 @@ var water_level = 0
 var shore_line = 1000
 var hooked = false
 
+signal fish_hooked(clicks_to_catch)
+signal fish_escaped(clicks_to_catch)
+
 func _ready():
 	$EscapeTimer.wait_time = escape_time
 	
@@ -21,7 +24,7 @@ func _physics_process(_delta):
 func move_to_target():
 	var direction = global_position.direction_to(target)
 	
-	if global_position.distance_to(target) > 10:
+	if global_position.distance_to(target) > 2:
 		global_position += speed * direction * get_physics_process_delta_time()
 
 func _on_vision_radius_area_entered(area):
@@ -47,8 +50,10 @@ func _on_area_entered(area):
 		hooked = true
 		$MoveTimer.stop()
 		$EscapeTimer.start()
+		fish_hooked.emit(clicks_to_catch)
 		
 func _on_escape_timer_timeout():
 	hooked = false
 	target += Vector2(-400, 400)
 	$MoveTimer.start()
+	fish_escaped.emit(clicks_to_catch)

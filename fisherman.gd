@@ -2,11 +2,20 @@ extends Sprite2D
 
 var water_level = global_position.y
 var is_thrown = false
+var fish_hooked = false
+var clicks_to_pull = 0:
+	get:
+		return clicks_to_pull
+	set(value):
+		clicks_to_pull = clamp(value, 0, 100)
 
 func _input(event):
 	if event.is_action_pressed("throw_line"):
 		if is_thrown:
-			pull_fishing_line()
+			if clicks_to_pull == 0:
+				pull_fishing_line()
+			else:
+				clicks_to_pull -= 1
 		else:
 			throw_fishing_line(get_global_mouse_position())
 	
@@ -18,3 +27,13 @@ func throw_fishing_line(pos):
 func pull_fishing_line():
 	$Bobber.position = $Marker2D.position
 	is_thrown = false
+
+func _on_bobber_area_entered(area):
+	if area.is_in_group("fish"):
+		fish_hooked = true
+
+func increment_clicks_to_pull(clicks):
+	clicks_to_pull += clicks
+
+func decrement_clicks_to_pull(clicks):
+	clicks_to_pull -= clicks

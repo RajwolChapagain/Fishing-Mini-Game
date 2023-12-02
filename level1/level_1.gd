@@ -21,12 +21,18 @@ func _on_spawner_fish_spawned(fish):
 
 func _on_fisherman_caught_small_fish(small_fish_count):
 	$HUD.set_num_small_fish_caught(small_fish_count)
+	check_if_fish_requirement_fullfilled()
 
 func _on_fisherman_caught_medium_fish(medium_fish_count):
 	$HUD.set_num_medium_fish_caught(medium_fish_count)
-
+	check_if_fish_requirement_fullfilled()
+	
 func _on_fisherman_caught_large_fish():
 	print("Level cleared")
 
 func _on_fisherman_clicks_to_pull_changed(clicks_to_pull):
 	$HUD.set_clicks_to_catch(clicks_to_pull)
+
+func check_if_fish_requirement_fullfilled():
+	if $Fisherman.small_fish_caught == small_fish_to_catch and $Fisherman.medium_fish_caught == medium_fish_to_catch:
+		$Spawner.spawn_big_fish()

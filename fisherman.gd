@@ -12,10 +12,9 @@ var clicks_to_pull = 0:
 func _input(event):
 	if event.is_action_pressed("throw_line"):
 		if is_thrown:
+			clicks_to_pull -= 1
 			if clicks_to_pull == 0:
 				pull_fishing_line()
-			else:
-				clicks_to_pull -= 1
 		else:
 			throw_fishing_line(get_global_mouse_position())
 	
@@ -25,6 +24,8 @@ func throw_fishing_line(pos):
 		is_thrown = true
 
 func pull_fishing_line():
+	clicks_to_pull = 0
+	catch_hooked_fish()
 	$Bobber.position = $Marker2D.position
 	is_thrown = false
 
@@ -37,3 +38,8 @@ func increment_clicks_to_pull(clicks):
 
 func decrement_clicks_to_pull(clicks):
 	clicks_to_pull -= clicks
+	
+func catch_hooked_fish():
+	for area in $Bobber.get_overlapping_areas():
+		if area.is_in_group("fish"):
+			area.queue_free()

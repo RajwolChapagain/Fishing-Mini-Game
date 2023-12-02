@@ -44,7 +44,6 @@ func set_water_level(level):
 func set_shore_line(line):
 	shore_line = line
 
-
 func _on_area_entered(area):
 	if area.name == "Bobber":
 		hooked = true

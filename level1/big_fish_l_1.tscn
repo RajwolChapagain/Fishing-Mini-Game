@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn3ovth2tbqo6"]
+
+[ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://level1/fish.tscn" id="1_0yohh"]
+
+[node name="BigFishL1" instance=ExtResource("1_0yohh")]

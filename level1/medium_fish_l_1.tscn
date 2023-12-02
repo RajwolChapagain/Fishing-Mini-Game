@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://5b6n7j5d3m51"]
 
 [ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://level1/fish.tscn" id="1_xku44"]
-[ext_resource type="Texture2D" uid="uid://blq4ilfeo8h10" path="res://level1/fish.svg" id="2_yd8nx"]
+[ext_resource type="Texture2D" uid="uid://b2ic1uxpe3v7s" path="res://level1/arowana_L1.png" id="2_3ena5"]
 
 [node name="MediumFishL1" instance=ExtResource("1_xku44")]
 clicks_to_catch = 2
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_yd8nx")
+texture = ExtResource("2_3ena5")

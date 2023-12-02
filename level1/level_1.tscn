@@ -3,23 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://bdoobp6pin4av" path="res://fisherman.tscn" id="1_ocq0r"]
 [ext_resource type="Script" path="res://level1/level_1.gd" id="1_olukm"]
 [ext_resource type="PackedScene" uid="uid://cbcq0n8bkwkaw" path="res://spawner.tscn" id="2_wguwc"]
-[ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://level1/fish.tscn" id="3_6kv6m"]
 [ext_resource type="Texture2D" uid="uid://c83khtkssquwj" path="res://level1/shore.svg" id="3_hdq74"]
 [ext_resource type="PackedScene" uid="uid://5b6n7j5d3m51" path="res://level1/medium_fish_l_1.tscn" id="3_oefr3"]
+[ext_resource type="PackedScene" uid="uid://cf0muf2fwg40d" path="res://level1/small_fish_l_1.tscn" id="4_a7y8v"]
 [ext_resource type="Texture2D" uid="uid://bwl1p2mgpb74" path="res://level1/water.svg" id="4_fjsdl"]
 [ext_resource type="PackedScene" uid="uid://dn3ovth2tbqo6" path="res://level1/big_fish_l_1.tscn" id="6_i8krd"]
 [ext_resource type="PackedScene" uid="uid://blho12h52avuq" path="res://ui/hud.tscn" id="9_wjqnb"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_olukm")
-small_fish_to_catch = 10
-medium_fish_to_catch = 20
+small_fish_to_catch = 1
+medium_fish_to_catch = 1
 
 [node name="Fisherman" parent="." instance=ExtResource("1_ocq0r")]
 position = Vector2(1729, 318)
 
 [node name="Spawner" parent="." instance=ExtResource("2_wguwc")]
-fishes = Array[PackedScene]([ExtResource("3_6kv6m"), ExtResource("3_oefr3")])
+fishes = Array[PackedScene]([ExtResource("4_a7y8v"), ExtResource("3_oefr3")])
 big_fish_scene = ExtResource("6_i8krd")
 
 [node name="Shore" type="Sprite2D" parent="."]

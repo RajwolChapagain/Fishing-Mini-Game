@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn3ovth2tbqo6"]
+[gd_scene load_steps=4 format=3 uid="uid://dn3ovth2tbqo6"]
 
-[ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://level1/fish.tscn" id="1_0yohh"]
+[ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://fish.tscn" id="1_v0h3c"]
 [ext_resource type="Texture2D" uid="uid://0t0fnqiu6y4o" path="res://level1/arapaima_L1.png" id="2_8qwdi"]
 
-[node name="BigFishL1" instance=ExtResource("1_0yohh")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex8tk"]
+size = Vector2(367, 105)
+
+[node name="BigFishL1" groups=["big_fish"] instance=ExtResource("1_v0h3c")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_8qwdi")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-2.5, 1.5)
+shape = SubResource("RectangleShape2D_ex8tk")

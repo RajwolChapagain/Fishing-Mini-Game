@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvawk2vpl1hjl"]
 
-[ext_resource type="Script" path="res://fish.gd" id="1_6mocm"]
-[ext_resource type="Texture2D" uid="uid://bcp43dkirynbp" path="res://level1/goldfish_L1.png" id="2_edqwc"]
+[ext_resource type="Script" path="res://fish.gd" id="1_3hq3h"]
+[ext_resource type="Texture2D" uid="uid://bcp43dkirynbp" path="res://level1/goldfish_L1.png" id="2_fspdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o181e"]
 size = Vector2(116, 36)
@@ -9,13 +9,13 @@ size = Vector2(116, 36)
 [sub_resource type="CircleShape2D" id="CircleShape2D_oh6cj"]
 radius = 246.002
 
-[node name="Fish" type="Area2D" groups=["fish", "small_fish"]]
-script = ExtResource("1_6mocm")
+[node name="Fish" type="Area2D" groups=["fish"]]
+script = ExtResource("1_3hq3h")
 speed = 200
 clicks_to_catch = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_edqwc")
+texture = ExtResource("2_fspdk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o181e")

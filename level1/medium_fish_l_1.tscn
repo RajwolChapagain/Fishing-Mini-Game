@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://5b6n7j5d3m51"]
+[gd_scene load_steps=4 format=3 uid="uid://5b6n7j5d3m51"]
 
-[ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://level1/fish.tscn" id="1_xku44"]
+[ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://fish.tscn" id="1_sk5c2"]
 [ext_resource type="Texture2D" uid="uid://b2ic1uxpe3v7s" path="res://level1/arowana_L1.png" id="2_3ena5"]
 
-[node name="MediumFishL1" groups=["medium_fish"] instance=ExtResource("1_xku44")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyh7m"]
+size = Vector2(192, 70)
+
+[node name="MediumFishL1" groups=["medium_fish"] instance=ExtResource("1_sk5c2")]
 clicks_to_catch = 10
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_3ena5")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_pyh7m")

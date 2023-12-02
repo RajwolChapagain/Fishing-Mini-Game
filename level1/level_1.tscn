@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx5igyfx4u2f1"]
+[gd_scene load_steps=10 format=3 uid="uid://cx5igyfx4u2f1"]
 
 [ext_resource type="PackedScene" uid="uid://bdoobp6pin4av" path="res://fisherman.tscn" id="1_ocq0r"]
 [ext_resource type="Script" path="res://level1/level_1.gd" id="1_olukm"]
@@ -8,9 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://5b6n7j5d3m51" path="res://level1/medium_fish_l_1.tscn" id="3_oefr3"]
 [ext_resource type="Texture2D" uid="uid://bwl1p2mgpb74" path="res://level1/water.svg" id="4_fjsdl"]
 [ext_resource type="PackedScene" uid="uid://dn3ovth2tbqo6" path="res://level1/big_fish_l_1.tscn" id="6_i8krd"]
+[ext_resource type="PackedScene" uid="uid://blho12h52avuq" path="res://ui/hud.tscn" id="9_wjqnb"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_olukm")
+small_fish_to_catch = 10
+medium_fish_to_catch = 20
 
 [node name="Fisherman" parent="." instance=ExtResource("1_ocq0r")]
 position = Vector2(1729, 318)
@@ -27,7 +30,12 @@ texture = ExtResource("3_hdq74")
 position = Vector2(810, 744)
 texture = ExtResource("4_fjsdl")
 
+[node name="HUD" parent="." instance=ExtResource("9_wjqnb")]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
 [connection signal="caught_large_fish" from="Fisherman" to="." method="_on_fisherman_caught_large_fish"]
 [connection signal="caught_medium_fish" from="Fisherman" to="." method="_on_fisherman_caught_medium_fish"]
 [connection signal="caught_small_fish" from="Fisherman" to="." method="_on_fisherman_caught_small_fish"]
+[connection signal="clicks_to_pull_changed" from="Fisherman" to="." method="_on_fisherman_clicks_to_pull_changed"]
 [connection signal="fish_spawned" from="Spawner" to="." method="_on_spawner_fish_spawned"]

@@ -13,51 +13,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7b0xr")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
+[node name="SmallFishContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
 offset_left = 25.0
 offset_top = 20.0
 offset_right = 143.0
 offset_bottom = 60.0
 
-[node name="SmallCaught" type="Label" parent="HBoxContainer"]
+[node name="SmallCaught" type="Label" parent="SmallFishContainer"]
 layout_mode = 2
 text = "0"
 
-[node name="SmallToCatch" type="Label" parent="HBoxContainer"]
+[node name="SmallToCatch" type="Label" parent="SmallFishContainer"]
 layout_mode = 2
 text = "/ 5"
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SmallFishContainer"]
 layout_mode = 2
 texture = ExtResource("1_67x7i")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-layout_mode = 0
+[node name="MediumFishContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
 offset_left = 145.0
 offset_top = 20.0
 offset_right = 284.0
 offset_bottom = 60.0
 
-[node name="MediumCaught" type="Label" parent="HBoxContainer2"]
+[node name="MediumCaught" type="Label" parent="MediumFishContainer"]
 layout_mode = 2
 text = "0"
 
-[node name="MediumToCatch" type="Label" parent="HBoxContainer2"]
+[node name="MediumToCatch" type="Label" parent="MediumFishContainer"]
 layout_mode = 2
 text = "/ 5"
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="MediumFishContainer"]
 layout_mode = 2
 texture = ExtResource("2_7lpfh")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="NumClicks" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
+visible = false
+layout_mode = 2
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0

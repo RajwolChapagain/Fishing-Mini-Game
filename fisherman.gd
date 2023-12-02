@@ -8,12 +8,14 @@ var clicks_to_pull = 0:
 		return clicks_to_pull
 	set(value):
 		clicks_to_pull = clamp(value, 0, 100)
+		clicks_to_pull_changed.emit(clicks_to_pull)
 var small_fish_caught = 0
 var medium_fish_caught = 0
 
 signal caught_small_fish(small_fish_count)
 signal caught_medium_fish(medium_fish_count)
 signal caught_large_fish
+signal clicks_to_pull_changed(clicks_to_pull)
 
 func _input(event):
 	if event.is_action_pressed("throw_line"):

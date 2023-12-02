@@ -1,16 +1,21 @@
 extends Control
 
 func set_num_small_fish_caught(value):
-	$HBoxContainer/SmallCaught.text = value
+	$SmallFishContainer/SmallCaught.text = str(value)
 
 func set_num_small_fish_to_catch(value):
-	$HBoxContainer/SmallToCatch.text = value
+	$SmallFishContainer/SmallToCatch.text = "/ " + str(value)
 	
 func set_num_medium_fish_caught(value):
-	$HBoxContainer/MediumCaught.text = value
+	$MediumFishContainer/MediumCaught.text = str(value)
 
 func set_num_medium_fish_to_catch(value):
-	$HBoxContainer/MediumToCatch.text = value
+	$MediumFishContainer/MediumToCatch.text = "/ " + str(value)
 
 func set_clicks_to_catch(value):
-	$NumClicks.text = value
+	$NumClicks.text = str(value)
+	
+	if value == 0:
+		$NumClicks.visible = false
+	else:
+		$NumClicks.visible = true

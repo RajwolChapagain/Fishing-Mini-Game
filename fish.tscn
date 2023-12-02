@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvawk2vpl1hjl"]
 
-[ext_resource type="Texture2D" uid="uid://blq4ilfeo8h10" path="res://fish.svg" id="1_6yim1"]
 [ext_resource type="Script" path="res://fish.gd" id="1_grt64"]
+[ext_resource type="Texture2D" uid="uid://bcp43dkirynbp" path="res://goldfish_L1.png" id="2_ge7u8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o181e"]
 size = Vector2(116, 36)
@@ -13,7 +13,7 @@ radius = 246.002
 script = ExtResource("1_grt64")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6yim1")
+texture = ExtResource("2_ge7u8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o181e")

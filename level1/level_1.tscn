@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx5igyfx4u2f1"]
+
+[ext_resource type="PackedScene" uid="uid://bdoobp6pin4av" path="res://fisherman.tscn" id="1_ocq0r"]
+[ext_resource type="PackedScene" uid="uid://cbcq0n8bkwkaw" path="res://spawner.tscn" id="2_wguwc"]
+[ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://level1/fish.tscn" id="3_6kv6m"]
+[ext_resource type="Texture2D" uid="uid://c83khtkssquwj" path="res://level1/shore.svg" id="3_hdq74"]
+[ext_resource type="PackedScene" uid="uid://5b6n7j5d3m51" path="res://level1/medium_fish_l_1.tscn" id="3_oefr3"]
+[ext_resource type="Texture2D" uid="uid://bwl1p2mgpb74" path="res://level1/water.svg" id="4_fjsdl"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Fisherman" parent="." instance=ExtResource("1_ocq0r")]
+position = Vector2(1729, 318)
+
+[node name="Spawner" parent="." instance=ExtResource("2_wguwc")]
+fishes = Array[PackedScene]([ExtResource("3_6kv6m"), ExtResource("3_oefr3")])
+
+[node name="Shore" type="Sprite2D" parent="."]
+position = Vector2(1770, 732)
+texture = ExtResource("3_hdq74")
+
+[node name="Water" type="Sprite2D" parent="."]
+position = Vector2(810, 744)
+texture = ExtResource("4_fjsdl")

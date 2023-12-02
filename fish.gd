@@ -20,7 +20,6 @@ func move_to_target():
 
 func _on_vision_radius_area_entered(area):
 	if area.name == "Bobber":
-		print("Fish sees Bobber")
 		target = area.global_position
 
 func _on_move_timer_timeout():

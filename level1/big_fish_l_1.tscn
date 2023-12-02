@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn3ovth2tbqo6"]
+[gd_scene load_steps=3 format=3 uid="uid://dn3ovth2tbqo6"]
 
 [ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://level1/fish.tscn" id="1_0yohh"]
+[ext_resource type="Texture2D" uid="uid://0t0fnqiu6y4o" path="res://level1/arapaima_L1.png" id="2_8qwdi"]
 
 [node name="BigFishL1" instance=ExtResource("1_0yohh")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_8qwdi")

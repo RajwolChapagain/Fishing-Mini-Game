@@ -8,7 +8,7 @@ var shore_line
 
 func _on_timeout():
 	if fishes.size() != 0:
-		var fish = fishes[0].instantiate()
+		var fish = fishes.pick_random().instantiate()
 		
 		$Path2D/PathFollow2D.progress_ratio = randf()
 		fish.global_position = $Path2D/PathFollow2D.global_position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdoobp6pin4av"]
+[gd_scene load_steps=6 format=3 uid="uid://bdoobp6pin4av"]
 
 [ext_resource type="Texture2D" uid="uid://cyw5od4jmgyh" path="res://icon.svg" id="1_8otmp"]
 [ext_resource type="Script" path="res://fisherman.gd" id="2_jkpsw"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbt2u"]
 radius = 19.105
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2pj1u"]
+radius = 123.146
 
 [node name="Fisherman" type="Sprite2D"]
 texture = ExtResource("1_8otmp")
@@ -22,5 +25,11 @@ texture = ExtResource("3_1a8p6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bobber"]
 shape = SubResource("CircleShape2D_qbt2u")
+
+[node name="SpookRadius" type="Area2D" parent="Bobber"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bobber/SpookRadius"]
+shape = SubResource("CircleShape2D_2pj1u")
+debug_color = Color(0.937255, 0.152941, 0.498039, 0.419608)
 
 [connection signal="area_entered" from="Bobber" to="." method="_on_bobber_area_entered"]

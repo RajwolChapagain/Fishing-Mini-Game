@@ -50,12 +50,13 @@ func decrement_clicks_to_pull(clicks):
 func catch_hooked_fish():
 	for area in $Bobber.get_overlapping_areas():
 		if area.is_in_group("fish"):
-			if area.is_in_group("small_fish"):
-				small_fish_caught += 1
-				caught_small_fish.emit(small_fish_caught)
-			elif area.is_in_group("medium_fish"):
-				medium_fish_caught += 1
-				caught_medium_fish.emit(medium_fish_caught)
-			elif area.is_in_group("big_fish"):
-				caught_large_fish.emit()
-			area.queue_free()
+			if area.hooked:
+				if area.is_in_group("small_fish"):
+					small_fish_caught += 1
+					caught_small_fish.emit(small_fish_caught)
+				elif area.is_in_group("medium_fish"):
+					medium_fish_caught += 1
+					caught_medium_fish.emit(medium_fish_caught)
+				elif area.is_in_group("big_fish"):
+					caught_large_fish.emit()
+				area.queue_free()

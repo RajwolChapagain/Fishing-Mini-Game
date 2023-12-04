@@ -37,9 +37,10 @@ func _on_move_timer_timeout():
 	target += Vector2(randi_range(-move_radius, move_radius), randi_range(-move_radius, move_radius))
 
 func clamp_position():
-	var leeway = 50
-	global_position.x = clamp(global_position.x, -leeway, shore_line)
-	global_position.y = clamp(global_position.y, water_level, get_viewport_rect().size.y + leeway)
+	var horizontal_leeway = $Sprite2D.texture.get_width()
+	var vertical_leeway = $Sprite2D.texture.get_height()
+	global_position.x = clamp(global_position.x, -horizontal_leeway, shore_line)
+	global_position.y = clamp(global_position.y, water_level, get_viewport_rect().size.y + vertical_leeway)
 
 func set_water_level(level):
 	water_level = level

@@ -4,6 +4,8 @@ extends Node2D
 @export var small_fish_to_catch = 5
 @export var medium_fish_to_catch = 5
 
+var big_fish_has_spawned = false
+
 signal level_cleared(level)
 signal level_failed
 
@@ -41,7 +43,9 @@ func _on_fisherman_clicks_to_pull_changed(clicks_to_pull):
 
 func check_if_fish_requirement_fullfilled():
 	if $Fisherman.small_fish_caught >= small_fish_to_catch and $Fisherman.medium_fish_caught >= medium_fish_to_catch:
-		$Spawner.spawn_big_fish()
+		if not big_fish_has_spawned:
+			$Spawner.spawn_big_fish()
+			big_fish_has_spawned = true
 
 func on_big_fish_despawned():
 	level_failed.emit()

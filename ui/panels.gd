@@ -14,6 +14,14 @@ func show_level_failed_panel():
 func show_congratulations_panel():
 	$CongratulationsPanel.visible = true
 
+func hide_level_cleared_panel():
+	$LevelClearedPanel.visible = false
+	
+func hide_level_failed_panel():
+	$LevelFailedPanel.visible = false
+	
+func hide_congratulations_panel():
+	$CongratulationsPanel.visible = false
 
 func _on_restart_button_button_up():
 	restart_button_pressed.emit()

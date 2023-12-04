@@ -1,14 +1,11 @@
 extends Node2D
 
 @export var levels : Array[PackedScene]
-
-func _ready():
-	instantitate_level_and_connect_signals(1)
-	pass
+@export var title_screen_scene = preload("res://ui/title_screen.tscn")
 	
-func _input(event):
-	if event.is_action_pressed("fail_level"):
-		_on_level_failed()
+func _ready():
+	take_to_title_screen()
+	
 		
 func _on_level_cleared(level):
 	if level == 1:
@@ -20,22 +17,24 @@ func _on_level_failed():
 	$Panels.show_level_failed_panel()
 
 func _on_panels_next_button_pressed():
-	pass # Replace with function body.
-
+	$Panels.hide_level_cleared_panel()
+	instantitate_level_and_connect_signals(2)
 
 func _on_panels_quit_button_pressed():
-	pass # Replace with function body.
-
+	$Panels.hide_level_failed_panel()
+	take_to_title_screen()
 
 func _on_panels_restart_button_pressed():
+	$Panels.hide_level_failed_panel()
 	for child in get_children():
 		if child.is_in_group("level"):
 			child.queue_free()
 			instantitate_level_and_connect_signals(child.level)
 
 func _on_panels_yay_button_pressed():
-	pass # Replace with function body.
-
+	$Panels.hide_congratulations_panel()
+	take_to_title_screen()
+	
 func instantitate_level_and_connect_signals(level):
 	var current_level = levels[level-1].instantiate()
 	add_child(current_level)
@@ -43,3 +42,16 @@ func instantitate_level_and_connect_signals(level):
 	current_level.level_failed.connect(_on_level_failed)
 	move_child(current_level, 0)
 	
+func take_to_title_screen():
+	for child in get_children():
+		if child.is_in_group("level"):
+			child.queue_free()
+	
+	var title_screen = title_screen_scene.instantiate()
+	title_screen.size = get_viewport_rect().size
+	add_child(title_screen)
+	title_screen.get_node("PlayButton").button_up.connect(on_play_button_pressed)
+	
+func on_play_button_pressed():
+	get_node("TitleScreen").queue_free()
+	instantitate_level_and_connect_signals(1)

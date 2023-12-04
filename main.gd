@@ -18,6 +18,10 @@ func _on_level_failed():
 
 func _on_panels_next_button_pressed():
 	$Panels.hide_level_cleared_panel()
+	for child in get_children():
+		if child.is_in_group("level"):
+			child.queue_free()
+			
 	instantitate_level_and_connect_signals(2)
 
 func _on_panels_quit_button_pressed():
@@ -48,8 +52,8 @@ func take_to_title_screen():
 			child.queue_free()
 	
 	var title_screen = title_screen_scene.instantiate()
-	title_screen.size = get_viewport_rect().size
 	add_child(title_screen)
+	title_screen.size = get_viewport_rect().size
 	title_screen.get_node("PlayButton").button_up.connect(on_play_button_pressed)
 	
 func on_play_button_pressed():

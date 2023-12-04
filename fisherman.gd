@@ -35,11 +35,12 @@ func _input(event):
 	
 func throw_fishing_line(pos):
 	if pos.x < $Marker2D.global_position.x and pos.y > water_level:
-		$Bobber.global_position = pos
+		var bobber_tween = get_tree().create_tween()
+		bobber_tween.tween_property($Bobber, "global_position", pos, 0.2)
 		is_thrown = true
-		$Bobber/SpookRadius/Sprite2D.visible = true
-		var tween = get_tree().create_tween()
-		tween.tween_property($Bobber/SpookRadius/Sprite2D, "scale", Vector2(1, 1), 0.3)
+		#$Bobber/SpookRadius/Sprite2D.visible = true
+		#var tween = get_tree().create_tween()
+		#tween.tween_property($Bobber/SpookRadius/Sprite2D, "scale", Vector2(1, 1), 0.3)
 		await get_tree().create_timer(0.5).timeout
 		$Bobber/SpookRadius.monitorable = false
 		$Bobber/SpookRadius/Sprite2D.scale = Vector2.ZERO

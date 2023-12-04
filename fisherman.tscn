@@ -34,6 +34,8 @@ shape = SubResource("CircleShape2D_2pj1u")
 debug_color = Color(0.937255, 0.152941, 0.498039, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber/SpookRadius"]
+visible = false
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_1ccs1")
 
 [connection signal="area_entered" from="Bobber" to="." method="_on_bobber_area_entered"]

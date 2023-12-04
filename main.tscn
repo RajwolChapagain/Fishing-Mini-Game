@@ -17,3 +17,7 @@ offset_bottom = 737.0
 
 [connection signal="level_cleared" from="Level1" to="." method="_on_level_cleared"]
 [connection signal="level_failed" from="Level1" to="." method="_on_level_failed"]
+[connection signal="next_button_pressed" from="Panels" to="." method="_on_panels_next_button_pressed"]
+[connection signal="quit_button_pressed" from="Panels" to="." method="_on_panels_quit_button_pressed"]
+[connection signal="restart_button_pressed" from="Panels" to="." method="_on_panels_restart_button_pressed"]
+[connection signal="yay_button_pressed" from="Panels" to="." method="_on_panels_yay_button_pressed"]

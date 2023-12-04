@@ -154,3 +154,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "YAY!!"
+
+[connection signal="button_up" from="LevelFailedPanel/Buttons/RestartButton" to="." method="_on_restart_button_button_up"]
+[connection signal="button_up" from="LevelFailedPanel/Buttons/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="button_up" from="LevelClearedPanel/Buttons/NextButton" to="." method="_on_next_button_button_up"]
+[connection signal="button_up" from="CongratulationsPanel/Buttons/YayButton" to="." method="_on_yay_button_button_up"]

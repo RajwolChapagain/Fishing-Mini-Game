@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdoobp6pin4av"]
 
 [ext_resource type="Texture2D" uid="uid://cyw5od4jmgyh" path="res://icon.svg" id="1_8otmp"]
-[ext_resource type="Script" path="res://fisherman.gd" id="2_jkpsw"]
-[ext_resource type="Texture2D" uid="uid://73joyn7u5fnm" path="res://bobber.svg" id="3_1a8p6"]
+[ext_resource type="Script" path="res://fisherman/fisherman.gd" id="2_jkpsw"]
+[ext_resource type="Texture2D" uid="uid://73joyn7u5fnm" path="res://fisherman/bobber.svg" id="3_1a8p6"]
 [ext_resource type="Texture2D" uid="uid://qarx4tdy6i8o" path="res://spook_radius.svg" id="4_1ccs1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbt2u"]

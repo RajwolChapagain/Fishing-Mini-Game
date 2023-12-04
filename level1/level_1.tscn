@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cx5igyfx4u2f1"]
 
-[ext_resource type="PackedScene" uid="uid://bdoobp6pin4av" path="res://fisherman.tscn" id="1_ocq0r"]
+[ext_resource type="PackedScene" uid="uid://bdoobp6pin4av" path="res://fisherman/fisherman.tscn" id="1_ocq0r"]
 [ext_resource type="Script" path="res://level1/level_1.gd" id="1_olukm"]
 [ext_resource type="PackedScene" uid="uid://cbcq0n8bkwkaw" path="res://spawner.tscn" id="2_wguwc"]
 [ext_resource type="Texture2D" uid="uid://c83khtkssquwj" path="res://level1/shore.svg" id="3_hdq74"]

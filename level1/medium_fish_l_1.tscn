@@ -14,3 +14,6 @@ texture = ExtResource("2_3ena5")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_pyh7m")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="5"]
+scale = Vector2(9.7, 3.5)

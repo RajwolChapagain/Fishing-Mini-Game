@@ -35,7 +35,7 @@ func _on_fisherman_clicks_to_pull_changed(clicks_to_pull):
 	$HUD.set_clicks_to_catch(clicks_to_pull)
 
 func check_if_fish_requirement_fullfilled():
-	if $Fisherman.small_fish_caught == small_fish_to_catch and $Fisherman.medium_fish_caught == medium_fish_to_catch:
+	if $Fisherman.small_fish_caught >= small_fish_to_catch and $Fisherman.medium_fish_caught >= medium_fish_to_catch:
 		$Spawner.spawn_big_fish()
 
 func on_big_fish_despawned():

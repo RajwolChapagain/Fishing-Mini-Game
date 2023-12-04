@@ -6,7 +6,6 @@ extends Node2D
 func _ready():
 	take_to_title_screen()
 	
-		
 func _on_level_cleared(level):
 	if level == 1:
 		$Panels.show_level_cleared_panel()

@@ -36,6 +36,7 @@ func _on_vision_radius_area_entered(area):
 func _on_move_timer_timeout():
 	var new_pos = global_position + Vector2(randi_range(-move_radius, move_radius), randi_range(-move_radius, move_radius))
 	set_target(new_pos)
+	$MoveTimer.wait_time = randi_range(2, 5)
 
 func clamp_position():
 	var horizontal_leeway = $Sprite2D.texture.get_width()

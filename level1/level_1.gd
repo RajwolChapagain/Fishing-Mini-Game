@@ -5,6 +5,7 @@ extends Node2D
 @export var medium_fish_to_catch = 5
 
 signal level_cleared(level)
+signal level_failed
 
 func _ready():
 	$Spawner.water_level = $Water.global_position.y - $Water.texture.get_height() / 2
@@ -43,4 +44,4 @@ func check_if_fish_requirement_fullfilled():
 		$Spawner.spawn_big_fish()
 
 func on_big_fish_despawned():
-	print("Game over")
+	level_failed.emit()

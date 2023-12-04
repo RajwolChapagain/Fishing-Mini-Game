@@ -12,6 +12,8 @@
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_olukm")
+small_fish_to_catch = 1
+medium_fish_to_catch = 1
 
 [node name="Fisherman" parent="." instance=ExtResource("1_ocq0r")]
 position = Vector2(1729, 318)

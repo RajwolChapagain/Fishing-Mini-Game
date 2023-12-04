@@ -7,3 +7,6 @@
 script = ExtResource("1_ptxyt")
 
 [node name="Level1" parent="." instance=ExtResource("2_22qe4")]
+
+[connection signal="level_cleared" from="Level1" to="." method="_on_level_cleared"]
+[connection signal="level_failed" from="Level1" to="." method="_on_level_failed"]

@@ -50,6 +50,13 @@ func _on_area_entered(area):
 		$MoveTimer.stop()
 		$EscapeTimer.start()
 		fish_hooked.emit(clicks_to_catch)
+	
+	if area.name == "SpookRadius":
+		var additional_distance = 10
+		var spook_radius = area.get_node("CollisionShape2D").shape.radius
+		var distance_to_hook = global_position.distance_to(area.global_position)
+		var distance_to_move = spook_radius - distance_to_hook + additional_distance
+		target = global_position + area.global_position.direction_to(global_position) * distance_to_move
 		
 func _on_escape_timer_timeout():
 	hooked = false

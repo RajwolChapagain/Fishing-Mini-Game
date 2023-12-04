@@ -8,7 +8,7 @@
 radius = 19.105
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2pj1u"]
-radius = 123.146
+radius = 300.0
 
 [node name="Fisherman" type="Sprite2D"]
 texture = ExtResource("1_8otmp")

@@ -1,7 +1,10 @@
 extends Node2D
 
+@export var level = 1
 @export var small_fish_to_catch = 5
 @export var medium_fish_to_catch = 5
+
+signal level_cleared(level)
 
 func _ready():
 	$Spawner.water_level = $Water.global_position.y - $Water.texture.get_height() / 2
@@ -30,8 +33,8 @@ func _on_fisherman_caught_medium_fish(medium_fish_count):
 	check_if_fish_requirement_fullfilled()
 	
 func _on_fisherman_caught_large_fish():
-	print("Level cleared")
-
+	level_cleared.emit(level)
+	
 func _on_fisherman_clicks_to_pull_changed(clicks_to_pull):
 	$HUD.set_clicks_to_catch(clicks_to_pull)
 

@@ -21,7 +21,7 @@ func _ready():
 	$FishingLine.add_point($Marker2D.position)
 	$FishingLine.add_point($Bobber.position)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$FishingLine.points[1] = $Bobber.position
 	
 func _input(event):

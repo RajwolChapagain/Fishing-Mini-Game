@@ -35,8 +35,9 @@ func _on_move_timer_timeout():
 	target += Vector2(randi_range(-move_radius, move_radius), randi_range(-move_radius, move_radius))
 
 func clamp_position():
-	global_position.x = clamp(global_position.x, 0, shore_line)
-	global_position.y = clamp(global_position.y, water_level, get_viewport_rect().size.y)
+	var leeway = 50
+	global_position.x = clamp(global_position.x, -leeway, shore_line)
+	global_position.y = clamp(global_position.y, water_level, get_viewport_rect().size.y + leeway)
 
 func set_water_level(level):
 	water_level = level
@@ -63,3 +64,9 @@ func _on_escape_timer_timeout():
 	target += Vector2(-400, 400)
 	$MoveTimer.start()
 	fish_escaped.emit(clicks_to_catch)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	if is_in_group("big_fish"):
+		print("Game lost")
+	queue_free()

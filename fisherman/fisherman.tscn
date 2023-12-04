@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cqcmxgmbwt5ba" path="res://fisherman/fisherman_stand.png" id="1_xcn7o"]
 [ext_resource type="Script" path="res://fisherman/fisherman.gd" id="2_7vo1l"]
 [ext_resource type="Texture2D" uid="uid://c1aehnrk5cgx4" path="res://fisherman/fisherman_cast.png" id="3_cqskg"]
-[ext_resource type="Texture2D" uid="uid://73joyn7u5fnm" path="res://fisherman/bobber.svg" id="3_m1dq7"]
 [ext_resource type="Texture2D" uid="uid://qarx4tdy6i8o" path="res://spook_radius.svg" id="4_p7x7k"]
+[ext_resource type="Texture2D" uid="uid://dj8ani5r216ko" path="res://fisherman/bobber.png" id="4_qo6fp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbt2u"]
 radius = 19.105
@@ -28,7 +28,7 @@ width = 5.0
 position = Vector2(117, -121)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
-texture = ExtResource("3_m1dq7")
+texture = ExtResource("4_qo6fp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bobber"]
 shape = SubResource("CircleShape2D_qbt2u")

@@ -22,10 +22,12 @@ offset_bottom = 60.0
 
 [node name="SmallCaught" type="Label" parent="SmallFishContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
 
 [node name="SmallToCatch" type="Label" parent="SmallFishContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "/ 5"
 
 [node name="TextureRect" type="TextureRect" parent="SmallFishContainer"]
@@ -43,10 +45,12 @@ offset_bottom = 60.0
 
 [node name="MediumCaught" type="Label" parent="MediumFishContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
 
 [node name="MediumToCatch" type="Label" parent="MediumFishContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "/ 5"
 
 [node name="TextureRect" type="TextureRect" parent="MediumFishContainer"]
@@ -65,7 +69,8 @@ offset_top = 137.0
 offset_right = 20.0
 offset_bottom = 179.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1

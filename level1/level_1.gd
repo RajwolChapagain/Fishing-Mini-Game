@@ -6,6 +6,7 @@ extends Node2D
 func _ready():
 	$Spawner.water_level = $Water.global_position.y - $Water.texture.get_height() / 2
 	$Spawner.shore_line = $Shore.global_position.x - $Shore.texture.get_width() / 2
+	$Fisherman.water_level = $Water.global_position.y - $Water.texture.get_height() / 2
 	$HUD.set_num_small_fish_to_catch(small_fish_to_catch)
 	$HUD.set_num_medium_fish_to_catch(medium_fish_to_catch)
 	

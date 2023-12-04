@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdoobp6pin4av"]
+[gd_scene load_steps=8 format=3 uid="uid://bdoobp6pin4av"]
 
 [ext_resource type="Texture2D" uid="uid://cqcmxgmbwt5ba" path="res://fisherman/fisherman_stand.png" id="1_xcn7o"]
 [ext_resource type="Script" path="res://fisherman/fisherman.gd" id="2_7vo1l"]
+[ext_resource type="Texture2D" uid="uid://c1aehnrk5cgx4" path="res://fisherman/fisherman_cast.png" id="3_cqskg"]
 [ext_resource type="Texture2D" uid="uid://73joyn7u5fnm" path="res://fisherman/bobber.svg" id="3_m1dq7"]
 [ext_resource type="Texture2D" uid="uid://qarx4tdy6i8o" path="res://spook_radius.svg" id="4_p7x7k"]
 
@@ -14,15 +15,17 @@ radius = 300.0
 [node name="Fisherman" type="Sprite2D"]
 texture = ExtResource("1_xcn7o")
 script = ExtResource("2_7vo1l")
+pull_sprite = ExtResource("1_xcn7o")
+cast_sprite = ExtResource("3_cqskg")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-102, -95)
+position = Vector2(117, -122)
 
 [node name="FishingLine" type="Line2D" parent="."]
 width = 5.0
 
 [node name="Bobber" type="Area2D" parent="."]
-position = Vector2(-102, -95)
+position = Vector2(117, -121)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
 texture = ExtResource("3_m1dq7")
@@ -40,5 +43,8 @@ debug_color = Color(0.937255, 0.152941, 0.498039, 0.419608)
 visible = false
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_p7x7k")
+
+[node name="CastMarker" type="Marker2D" parent="."]
+position = Vector2(-98, -82)
 
 [connection signal="area_entered" from="Bobber" to="." method="_on_bobber_area_entered"]

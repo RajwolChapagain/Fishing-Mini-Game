@@ -34,6 +34,7 @@ position = Vector2(1770, 732)
 texture = ExtResource("3_hdq74")
 
 [node name="Water" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(962, 744)
 texture = ExtResource("4_fjsdl")
 

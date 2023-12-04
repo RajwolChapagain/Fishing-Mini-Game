@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2cb00obmhn3l"]
+[gd_scene load_steps=4 format=3 uid="uid://c2cb00obmhn3l"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ptxyt"]
 [ext_resource type="PackedScene" uid="uid://cx5igyfx4u2f1" path="res://level1/level_1.tscn" id="2_22qe4"]
+[ext_resource type="PackedScene" uid="uid://kmd2kr5w4u8q" path="res://ui/panels.tscn" id="3_fvu05"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ptxyt")
 
 [node name="Level1" parent="." instance=ExtResource("2_22qe4")]
+
+[node name="Panels" parent="." instance=ExtResource("3_fvu05")]
+offset_left = 506.0
+offset_top = 335.0
+offset_right = 1256.0
+offset_bottom = 737.0
 
 [connection signal="level_cleared" from="Level1" to="." method="_on_level_cleared"]
 [connection signal="level_failed" from="Level1" to="." method="_on_level_failed"]

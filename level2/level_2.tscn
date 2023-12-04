@@ -4,5 +4,5 @@
 
 [node name="Level2" instance=ExtResource("1_argad")]
 level = 2
-small_fish_to_catch = 5
-medium_fish_to_catch = 5
+small_fish_to_catch = 2
+medium_fish_to_catch = 2

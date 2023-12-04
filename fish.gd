@@ -31,10 +31,11 @@ func move_to_target():
 func _on_vision_radius_area_entered(area):
 	if area.name == "Bobber":
 		if not area.get_node("SpookRadius").monitorable:
-			target = area.global_position
+			set_target(area.global_position)
 
 func _on_move_timer_timeout():
-	target += Vector2(randi_range(-move_radius, move_radius), randi_range(-move_radius, move_radius))
+	var new_pos = global_position + Vector2(randi_range(-move_radius, move_radius), randi_range(-move_radius, move_radius))
+	set_target(new_pos)
 
 func clamp_position():
 	var horizontal_leeway = $Sprite2D.texture.get_width()
@@ -73,3 +74,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	if is_in_group("big_fish"):
 		big_fish_despawned.emit()
 	queue_free()
+
+func set_target(pos):
+	$Sprite2D.flip_h = pos.x > global_position.x
+	target = pos

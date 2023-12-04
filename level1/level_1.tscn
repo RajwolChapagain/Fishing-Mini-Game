@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dn3ovth2tbqo6" path="res://level1/big_fish_l_1.tscn" id="6_i8krd"]
 [ext_resource type="PackedScene" uid="uid://blho12h52avuq" path="res://ui/hud.tscn" id="9_wjqnb"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" groups=["level"]]
 script = ExtResource("1_olukm")
 small_fish_to_catch = 1
 medium_fish_to_catch = 1

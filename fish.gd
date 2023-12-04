@@ -12,6 +12,7 @@ var hooked = false
 
 signal fish_hooked(clicks_to_catch)
 signal fish_escaped(clicks_to_catch)
+signal big_fish_despawned
 
 func _ready():
 	$EscapeTimer.wait_time = escape_time
@@ -67,8 +68,7 @@ func _on_escape_timer_timeout():
 	$MoveTimer.start()
 	fish_escaped.emit(clicks_to_catch)
 
-
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if is_in_group("big_fish"):
-		print("Game lost")
+		big_fish_despawned.emit()
 	queue_free()

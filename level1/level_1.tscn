@@ -19,7 +19,6 @@ medium_fish_to_catch = 1
 position = Vector2(1729, 318)
 
 [node name="Spawner" parent="." instance=ExtResource("2_wguwc")]
-one_shot = true
 fishes = Array[PackedScene]([ExtResource("4_a7y8v"), ExtResource("3_oefr3")])
 big_fish_scene = ExtResource("6_i8krd")
 

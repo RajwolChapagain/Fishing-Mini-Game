@@ -18,6 +18,7 @@ func on_fish_escaped(clicks):
 func _on_spawner_fish_spawned(fish):
 	fish.fish_hooked.connect(on_fish_hooked)
 	fish.fish_escaped.connect(on_fish_escaped)
+	fish.big_fish_despawned.connect(on_big_fish_despawned)
 
 func _on_fisherman_caught_small_fish(small_fish_count):
 	$HUD.set_num_small_fish_caught(small_fish_count)
@@ -36,3 +37,6 @@ func _on_fisherman_clicks_to_pull_changed(clicks_to_pull):
 func check_if_fish_requirement_fullfilled():
 	if $Fisherman.small_fish_caught == small_fish_to_catch and $Fisherman.medium_fish_caught == medium_fish_to_catch:
 		$Spawner.spawn_big_fish()
+
+func on_big_fish_despawned():
+	print("Game over")

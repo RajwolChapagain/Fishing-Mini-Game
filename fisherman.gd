@@ -17,6 +17,13 @@ signal caught_medium_fish(medium_fish_count)
 signal caught_large_fish
 signal clicks_to_pull_changed(clicks_to_pull)
 
+func _ready():
+	$FishingLine.add_point($Marker2D.position)
+	$FishingLine.add_point($Bobber.position)
+
+func _physics_process(delta):
+	$FishingLine.points[1] = $Bobber.position
+	
 func _input(event):
 	if event.is_action_pressed("throw_line"):
 		if is_thrown:

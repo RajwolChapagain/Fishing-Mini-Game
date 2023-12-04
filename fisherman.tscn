@@ -18,6 +18,9 @@ script = ExtResource("2_jkpsw")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-102, -95)
 
+[node name="FishingLine" type="Line2D" parent="."]
+width = 5.0
+
 [node name="Bobber" type="Area2D" parent="."]
 position = Vector2(-102, -95)
 

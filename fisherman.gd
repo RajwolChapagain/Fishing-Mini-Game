@@ -30,11 +30,14 @@ func throw_fishing_line(pos):
 	if pos.x < $Marker2D.global_position.x and pos.y > water_level:
 		$Bobber.global_position = pos
 		is_thrown = true
+		await get_tree().create_timer(0.1).timeout
+		$Bobber/SpookRadius.monitorable = false
 
 func pull_fishing_line():
 	clicks_to_pull = 0
 	catch_hooked_fish()
 	$Bobber.position = $Marker2D.position
+	$Bobber/SpookRadius.monitorable = true
 	is_thrown = false
 
 func _on_bobber_area_entered(area):

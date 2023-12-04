@@ -29,7 +29,8 @@ func move_to_target():
 
 func _on_vision_radius_area_entered(area):
 	if area.name == "Bobber":
-		target = area.global_position
+		if not area.get_node("SpookRadius").monitorable:
+			target = area.global_position
 
 func _on_move_timer_timeout():
 	target += Vector2(randi_range(-move_radius, move_radius), randi_range(-move_radius, move_radius))
@@ -47,10 +48,11 @@ func set_shore_line(line):
 
 func _on_area_entered(area):
 	if area.name == "Bobber":
-		hooked = true
-		$MoveTimer.stop()
-		$EscapeTimer.start()
-		fish_hooked.emit(clicks_to_catch)
+		if not area.get_node("SpookRadius").monitorable:
+			hooked = true
+			$MoveTimer.stop()
+			$EscapeTimer.start()
+			fish_hooked.emit(clicks_to_catch)
 	
 	if area.name == "SpookRadius":
 		var additional_distance = 10

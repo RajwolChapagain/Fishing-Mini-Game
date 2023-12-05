@@ -98,6 +98,8 @@ func catch_hooked_fish():
 					caught_medium_fish.emit(medium_fish_caught)
 				elif area.is_in_group("big_fish"):
 					caught_large_fish.emit()
+					
+				$FishCaughtSound.play()
 				area.queue_free()
 
 

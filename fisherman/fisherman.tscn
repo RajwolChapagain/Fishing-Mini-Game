@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdoobp6pin4av"]
+[gd_scene load_steps=10 format=3 uid="uid://bdoobp6pin4av"]
 
 [ext_resource type="Texture2D" uid="uid://cqcmxgmbwt5ba" path="res://fisherman/fisherman_stand.png" id="1_xcn7o"]
 [ext_resource type="Script" path="res://fisherman/fisherman.gd" id="2_7vo1l"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qarx4tdy6i8o" path="res://spook_radius.svg" id="4_p7x7k"]
 [ext_resource type="Texture2D" uid="uid://dj8ani5r216ko" path="res://fisherman/bobber.png" id="4_qo6fp"]
 [ext_resource type="AudioStream" uid="uid://bo27qsylh601e" path="res://fisherman/splash.wav" id="6_o8clg"]
+[ext_resource type="AudioStream" uid="uid://d3od0tsbia8ef" path="res://fisherman/fish_caught.wav" id="7_51xft"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbt2u"]
 radius = 14.0357
@@ -56,6 +57,9 @@ one_shot = true
 
 [node name="SplashSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_o8clg")
+
+[node name="FishCaughtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_51xft")
 
 [connection signal="area_entered" from="Bobber" to="." method="_on_bobber_area_entered"]
 [connection signal="timeout" from="CatchTimer" to="." method="_on_catch_timer_timeout"]

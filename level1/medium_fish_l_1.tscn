@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2ic1uxpe3v7s" path="res://level1/arowana_L1.png" id="2_3ena5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyh7m"]
-size = Vector2(192, 70)
+size = Vector2(66, 21)
 
 [node name="MediumFishL1" groups=["medium_fish"] instance=ExtResource("1_sk5c2")]
 clicks_to_catch = 10
@@ -13,6 +13,7 @@ clicks_to_catch = 10
 texture = ExtResource("2_3ena5")
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-13, -0.5)
 shape = SubResource("RectangleShape2D_pyh7m")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="5"]

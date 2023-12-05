@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0t0fnqiu6y4o" path="res://level1/arapaima_L1.png" id="2_8qwdi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ex8tk"]
-size = Vector2(367, 105)
+size = Vector2(198, 51)
 
 [node name="BigFishL1" groups=["big_fish"] instance=ExtResource("1_v0h3c")]
 
@@ -12,7 +12,7 @@ size = Vector2(367, 105)
 texture = ExtResource("2_8qwdi")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-2.5, 1.5)
+position = Vector2(8, -5.5)
 shape = SubResource("RectangleShape2D_ex8tk")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="5"]

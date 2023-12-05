@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dj8ani5r216ko" path="res://fisherman/bobber.png" id="4_qo6fp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbt2u"]
-radius = 19.105
+radius = 14.0357
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2pj1u"]
 radius = 300.0
@@ -25,12 +25,13 @@ position = Vector2(117, -122)
 width = 5.0
 
 [node name="Bobber" type="Area2D" parent="."]
-position = Vector2(117, -121)
+position = Vector2(117, -122)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
 texture = ExtResource("4_qo6fp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bobber"]
+position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_qbt2u")
 
 [node name="SpookRadius" type="Area2D" parent="Bobber"]
@@ -48,4 +49,9 @@ texture = ExtResource("4_p7x7k")
 [node name="CastMarker" type="Marker2D" parent="."]
 position = Vector2(-98, -82)
 
+[node name="CatchTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="area_entered" from="Bobber" to="." method="_on_bobber_area_entered"]
+[connection signal="timeout" from="CatchTimer" to="." method="_on_catch_timer_timeout"]

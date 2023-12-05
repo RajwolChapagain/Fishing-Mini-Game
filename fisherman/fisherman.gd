@@ -54,14 +54,14 @@ func throw_fishing_line(pos):
 		is_thrown = true
 		await bobber_tween.tween_property($Bobber, "global_position", pos, 0.5).finished
 		throwing = false
+		$CatchTimer.start()
 		$Bobber/SpookRadius.monitoring = true
 		await get_tree().create_timer(0.5).timeout
 		$Bobber/SpookRadius.monitoring = false	
 		
-		await get_tree().create_timer(5).timeout
-		can_catch_fish = true
 		
 func pull_fishing_line():
+	$CatchTimer.stop()
 	can_catch_fish = false
 	$FishingLine.points[0] = $Marker2D.position
 	texture = pull_sprite
@@ -93,3 +93,7 @@ func catch_hooked_fish():
 				elif area.is_in_group("big_fish"):
 					caught_large_fish.emit()
 				area.queue_free()
+
+
+func _on_catch_timer_timeout():
+	can_catch_fish = true

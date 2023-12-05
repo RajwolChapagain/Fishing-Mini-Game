@@ -30,7 +30,7 @@ func move_to_target():
 
 func _on_vision_radius_area_entered(area):
 	if area.name == "Bobber":
-		if not area.get_node("SpookRadius").monitorable:
+		if not area.get_node("SpookRadius").monitoring:
 			set_target(area.global_position)
 
 func _on_move_timer_timeout():
@@ -52,18 +52,11 @@ func set_shore_line(line):
 
 func _on_area_entered(area):
 	if area.name == "Bobber":
-		if not area.get_node("SpookRadius").monitorable:
+		if area.get_parent().is_thrown:
 			hooked = true
 			$MoveTimer.stop()
 			$EscapeTimer.start()
 			fish_hooked.emit(clicks_to_catch)
-	
-	if area.name == "SpookRadius":
-		var additional_distance = 10
-		var spook_radius = area.get_node("CollisionShape2D").shape.radius
-		var distance_to_hook = global_position.distance_to(area.global_position)
-		var distance_to_move = spook_radius - distance_to_hook + additional_distance
-		target = global_position + area.global_position.direction_to(global_position) * distance_to_move
 		
 func _on_escape_timer_timeout():
 	hooked = false
@@ -79,3 +72,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func set_target(pos):
 	$Sprite2D.flip_h = pos.x > global_position.x
 	target = pos
+
+func get_spooked(source_pos, spook_radius):
+	var additional_distance = 10
+	var distance_to_hook = global_position.distance_to(source_pos)
+	var distance_to_move = spook_radius - distance_to_hook + additional_distance
+	set_target(global_position + source_pos.direction_to(global_position) * distance_to_move)

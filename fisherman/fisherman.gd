@@ -27,6 +27,11 @@ func _ready():
 func _physics_process(_delta):
 	$FishingLine.points[1] = $Bobber.position
 	
+	if $Bobber/SpookRadius.monitoring:
+		for area in $Bobber/SpookRadius.get_overlapping_areas():
+			if area.is_in_group("fish"):
+				area.get_spooked($Bobber.global_position, $Bobber/SpookRadius/CollisionShape2D.shape.radius)
+	
 func _input(event):
 	if event.is_action_pressed("throw_line"):
 		if is_thrown:
@@ -40,16 +45,13 @@ func throw_fishing_line(pos):
 	if pos.x < $Marker2D.global_position.x and pos.y > water_level:
 		texture = cast_sprite
 		$FishingLine.points[0] = $CastMarker.position
+		
 		var bobber_tween = get_tree().create_tween()
-		bobber_tween.tween_property($Bobber, "global_position", pos, 0.2)
-		is_thrown = true
-		#$Bobber/SpookRadius/Sprite2D.visible = true
-		#var tween = get_tree().create_tween()
-		#tween.tween_property($Bobber/SpookRadius/Sprite2D, "scale", Vector2(1, 1), 0.3)
+		await bobber_tween.tween_property($Bobber, "global_position", pos, 0.5).finished
+		$Bobber/SpookRadius.monitoring = true
 		await get_tree().create_timer(0.5).timeout
-		$Bobber/SpookRadius.monitorable = false
-		$Bobber/SpookRadius/Sprite2D.scale = Vector2.ZERO
-		$Bobber/SpookRadius/Sprite2D.visible = false		
+		$Bobber/SpookRadius.monitoring = false	
+		is_thrown = true
 		
 func pull_fishing_line():
 	$FishingLine.points[0] = $Marker2D.position
@@ -57,7 +59,6 @@ func pull_fishing_line():
 	clicks_to_pull = 0
 	catch_hooked_fish()
 	$Bobber.position = $Marker2D.position
-	$Bobber/SpookRadius.monitorable = true
 	is_thrown = false
 
 func _on_bobber_area_entered(area):

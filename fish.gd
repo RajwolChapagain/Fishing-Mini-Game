@@ -58,7 +58,7 @@ func set_shore_line(line):
 
 func _on_area_entered(area):
 	if area.name == "Bobber":
-		if area.get_parent().is_thrown:
+		if area.get_parent().can_catch_fish:
 			hooked = true
 			$MoveTimer.stop()
 			$EscapeTimer.start()

@@ -7,6 +7,7 @@ var water_level = global_position.y
 var is_thrown = false
 var fish_hooked = false
 var throwing = false
+var can_catch_fish = false
 var clicks_to_pull = 0:
 	get:
 		return clicks_to_pull
@@ -57,7 +58,11 @@ func throw_fishing_line(pos):
 		await get_tree().create_timer(0.5).timeout
 		$Bobber/SpookRadius.monitoring = false	
 		
+		await get_tree().create_timer(5).timeout
+		can_catch_fish = true
+		
 func pull_fishing_line():
+	can_catch_fish = false
 	$FishingLine.points[0] = $Marker2D.position
 	texture = pull_sprite
 	clicks_to_pull = 0

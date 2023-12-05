@@ -30,7 +30,7 @@ func move_to_target():
 
 func _on_vision_radius_area_entered(area):
 	if area.name == "Bobber":
-		if not area.get_node("SpookRadius").monitoring:
+		if area.get_parent().can_catch_fish:
 			set_target(area.global_position)
 
 func _on_move_timer_timeout():

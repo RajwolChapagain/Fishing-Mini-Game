@@ -11,6 +11,8 @@ signal fish_spawned(fish)
 func _on_timeout():
 	if fishes.size() != 0:
 		spawn_fish_at_random_position(fishes.pick_random().instantiate())
+	
+	wait_time = randi_range(2, 6)
 
 func spawn_big_fish():
 	stop()

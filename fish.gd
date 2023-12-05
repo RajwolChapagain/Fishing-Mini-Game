@@ -34,7 +34,13 @@ func _on_vision_radius_area_entered(area):
 			set_target(area.global_position)
 
 func _on_move_timer_timeout():
-	var new_pos = global_position + Vector2(randi_range(-move_radius, move_radius), randi_range(-move_radius, move_radius))
+	var new_pos
+	
+	if not $VisibleOnScreenNotifier2D.is_on_screen():
+		new_pos = global_position + Vector2(move_radius, -move_radius)
+	else:
+		new_pos = global_position + Vector2(randi_range(-move_radius, move_radius), randi_range(-move_radius, move_radius))
+		
 	set_target(new_pos)
 	$MoveTimer.wait_time = randi_range(2, 5)
 

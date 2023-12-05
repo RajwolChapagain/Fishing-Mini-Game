@@ -6,6 +6,7 @@ extends Sprite2D
 var water_level = global_position.y
 var is_thrown = false
 var fish_hooked = false
+var throwing = false
 var clicks_to_pull = 0:
 	get:
 		return clicks_to_pull
@@ -36,22 +37,25 @@ func _input(event):
 	if event.is_action_pressed("throw_line"):
 		if is_thrown:
 			clicks_to_pull -= 1
-			if clicks_to_pull == 0:
+			if clicks_to_pull == 0 and not throwing:
 				pull_fishing_line()
 		else:
 			throw_fishing_line(get_global_mouse_position())
 	
 func throw_fishing_line(pos):
-	if pos.x < $Marker2D.global_position.x and pos.y > water_level:
+		
+	if pos.x < $CastMarker.global_position.x and pos.y > water_level:
 		texture = cast_sprite
 		$FishingLine.points[0] = $CastMarker.position
 		
 		var bobber_tween = get_tree().create_tween()
+		throwing = true
+		is_thrown = true
 		await bobber_tween.tween_property($Bobber, "global_position", pos, 0.5).finished
+		throwing = false
 		$Bobber/SpookRadius.monitoring = true
 		await get_tree().create_timer(0.5).timeout
 		$Bobber/SpookRadius.monitoring = false	
-		is_thrown = true
 		
 func pull_fishing_line():
 	$FishingLine.points[0] = $Marker2D.position

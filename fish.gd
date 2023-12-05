@@ -47,7 +47,7 @@ func _on_move_timer_timeout():
 func clamp_position():
 	var horizontal_leeway = $Sprite2D.texture.get_width()
 	var vertical_leeway = $Sprite2D.texture.get_height()
-	global_position.x = clamp(global_position.x, -horizontal_leeway, shore_line)
+	global_position.x = clamp(global_position.x, -horizontal_leeway, get_viewport_rect().size.x + horizontal_leeway)
 	global_position.y = clamp(global_position.y, water_level, get_viewport_rect().size.y + vertical_leeway)
 
 func set_water_level(level):

@@ -61,12 +61,14 @@ func throw_fishing_line(pos):
 		throwing = false
 		$CatchTimer.start()
 		$Bobber/SpookRadius.monitoring = true
+		$Bobber/Sprite2D.modulate = Color.RED
 		await get_tree().create_timer(0.5).timeout
 		$Bobber/SpookRadius.monitoring = false	
 		
 		
 func pull_fishing_line():
 	splash_sound_played = false
+	$Bobber/Sprite2D.modulate = Color.WHITE	
 	$CatchTimer.stop()
 	can_catch_fish = false
 	$FishingLine.points[0] = $Marker2D.position
@@ -113,3 +115,4 @@ func catch_hooked_fish():
 
 func _on_catch_timer_timeout():
 	can_catch_fish = true
+	$Bobber/Sprite2D.modulate = Color.WHITE

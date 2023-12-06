@@ -65,7 +65,6 @@ stream = ExtResource("8_1jnj2")
 position = Vector2(-98, -82)
 
 [node name="CatchTimer" type="Timer" parent="."]
-wait_time = 5.0
 one_shot = true
 
 [node name="FishCaughtSound" type="AudioStreamPlayer2D" parent="."]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs6f74nv1afax"]
+
+[ext_resource type="PackedScene" uid="uid://bvawk2vpl1hjl" path="res://fish.tscn" id="1_aiofs"]
+[ext_resource type="Texture2D" uid="uid://dusidxv8a1ka" path="res://level2/small_l2.png" id="2_tm83p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfua8"]
+size = Vector2(117.5, 36)
+
+[node name="Fish" groups=["small_fish"] instance=ExtResource("1_aiofs")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_tm83p")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-6.75, -1.5)
+shape = SubResource("RectangleShape2D_nfua8")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="5"]
+position = Vector2(0, -2.5)
+scale = Vector2(9.4, 3.45)

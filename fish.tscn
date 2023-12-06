@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bcp43dkirynbp" path="res://level1/goldfish_L1.png" id="2_fspdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o181e"]
-size = Vector2(116, 36)
+size = Vector2(114, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oh6cj"]
 radius = 246.002

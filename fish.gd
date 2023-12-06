@@ -80,6 +80,9 @@ func set_target(pos):
 	target = pos
 
 func get_spooked(source_pos, spook_radius):
+	if not $VisibleOnScreenNotifier2D.is_on_screen():
+		return
+		
 	var additional_distance = 10
 	var distance_to_hook = global_position.distance_to(source_pos)
 	var distance_to_move = spook_radius - distance_to_hook + additional_distance

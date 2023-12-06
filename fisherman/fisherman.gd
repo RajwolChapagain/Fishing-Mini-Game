@@ -85,6 +85,8 @@ func _on_bobber_area_entered(area):
 		fish_hooked = true
 
 func increment_clicks_to_pull(clicks):
+	if not $Bobber/FishHookedSound.playing:
+		$Bobber/FishHookedSound.play()
 	clicks_to_pull += clicks
 
 func decrement_clicks_to_pull(clicks):

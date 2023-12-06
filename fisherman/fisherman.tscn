@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdoobp6pin4av"]
+[gd_scene load_steps=11 format=3 uid="uid://bdoobp6pin4av"]
 
 [ext_resource type="Texture2D" uid="uid://cqcmxgmbwt5ba" path="res://fisherman/fisherman_stand.png" id="1_xcn7o"]
 [ext_resource type="Script" path="res://fisherman/fisherman.gd" id="2_7vo1l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dj8ani5r216ko" path="res://fisherman/bobber.png" id="4_qo6fp"]
 [ext_resource type="AudioStream" uid="uid://bo27qsylh601e" path="res://fisherman/splash.wav" id="6_o8clg"]
 [ext_resource type="AudioStream" uid="uid://d3od0tsbia8ef" path="res://fisherman/fish_caught.wav" id="7_51xft"]
+[ext_resource type="AudioStream" uid="uid://3saou7a5ppr7" path="res://fisherman/pull_out_splash.wav" id="7_hlte5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbt2u"]
 radius = 14.0357
@@ -48,15 +49,20 @@ visible = false
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_p7x7k")
 
+[node name="SplashSound" type="AudioStreamPlayer2D" parent="Bobber"]
+position = Vector2(-117, 122)
+stream = ExtResource("6_o8clg")
+
+[node name="PullOutSound" type="AudioStreamPlayer2D" parent="Bobber"]
+position = Vector2(-117, 122)
+stream = ExtResource("7_hlte5")
+
 [node name="CastMarker" type="Marker2D" parent="."]
 position = Vector2(-98, -82)
 
 [node name="CatchTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-
-[node name="SplashSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_o8clg")
 
 [node name="FishCaughtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_51xft")

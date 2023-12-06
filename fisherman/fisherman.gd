@@ -36,7 +36,7 @@ func _physics_process(_delta):
 				area.get_spooked($Bobber.global_position, $Bobber/SpookRadius/CollisionShape2D.shape.radius)
 	
 	if not splash_sound_played and $Bobber.global_position.y > water_level:
-		$SplashSound.play()
+		$Bobber/SplashSound.play()
 		splash_sound_played = true
 	
 func _input(event):
@@ -72,7 +72,11 @@ func pull_fishing_line():
 	$FishingLine.points[0] = $Marker2D.position
 	texture = pull_sprite
 	clicks_to_pull = 0
-	catch_hooked_fish()
+	if catch_hooked_fish():
+		$FishCaughtSound.play()		
+	else:
+		$Bobber/PullOutSound.play()
+		
 	$Bobber.position = $Marker2D.position
 	is_thrown = false
 
@@ -87,6 +91,7 @@ func decrement_clicks_to_pull(clicks):
 	clicks_to_pull -= clicks
 	
 func catch_hooked_fish():
+	var caught = false
 	for area in $Bobber.get_overlapping_areas():
 		if area.is_in_group("fish"):
 			if area.hooked:
@@ -98,10 +103,11 @@ func catch_hooked_fish():
 					caught_medium_fish.emit(medium_fish_caught)
 				elif area.is_in_group("big_fish"):
 					caught_large_fish.emit()
-					
-				$FishCaughtSound.play()
+				
 				area.queue_free()
-
+				caught = true
+	
+	return caught
 
 func _on_catch_timer_timeout():
 	can_catch_fish = true

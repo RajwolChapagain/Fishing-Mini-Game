@@ -14,7 +14,6 @@ func _ready():
 	$Spawner.shore_line = $Shore.global_position.x - $Shore.texture.get_width() / 2
 	$Fisherman.water_level = $Water.global_position.y - $Water.texture.get_height() / 2
 	$HUD.set_num_small_fish_to_catch(small_fish_to_catch)
-	print(small_fish_to_catch)
 	$HUD.set_num_medium_fish_to_catch(medium_fish_to_catch)
 	
 func on_fish_hooked(clicks):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://wugcu5pjp38i"]
+[gd_scene load_steps=8 format=3 uid="uid://wugcu5pjp38i"]
 
 [ext_resource type="PackedScene" uid="uid://lyh47ek8hgrb" path="res://level1/level_1.tscn" id="1_argad"]
 [ext_resource type="PackedScene" uid="uid://bs6f74nv1afax" path="res://level2/small_fish_l_2.tscn" id="2_6h40w"]
+[ext_resource type="Texture2D" uid="uid://e4hihj2envdc" path="res://level2/level_2_BG.png" id="2_h6g2w"]
 [ext_resource type="PackedScene" uid="uid://bnlybx8qud2wt" path="res://level2/medium_fish_l_2.tscn" id="3_htmr0"]
 [ext_resource type="PackedScene" uid="uid://cmatvjqjwu2e8" path="res://level2/big_fish_l_2.tscn" id="4_jowjc"]
 [ext_resource type="Texture2D" uid="uid://dusidxv8a1ka" path="res://level2/small_l2.png" id="5_grorh"]
@@ -11,6 +12,12 @@
 level = 2
 small_fish_to_catch = 6
 medium_fish_to_catch = 6
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_h6g2w")
+
+[node name="Fisherman" parent="." index="1"]
+position = Vector2(1748, 156)
 
 [node name="Spawner" parent="." index="2"]
 fishes = Array[PackedScene]([ExtResource("2_6h40w"), ExtResource("3_htmr0")])

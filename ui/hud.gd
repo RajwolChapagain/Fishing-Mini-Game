@@ -1,5 +1,8 @@
 extends Control
 
+@export var small_fish_sprite : Texture2D
+@export var medium_fish_sprite : Texture2D
+	
 func set_num_small_fish_caught(value):
 	$SmallFishContainer/SmallCaught.text = str(value)
 

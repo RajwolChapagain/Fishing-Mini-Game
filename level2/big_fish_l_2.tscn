@@ -7,6 +7,7 @@
 size = Vector2(358, 66)
 
 [node name="Fish" groups=["big_fish"] instance=ExtResource("1_bya1i")]
+clicks_to_catch = 10
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_5oq8q")

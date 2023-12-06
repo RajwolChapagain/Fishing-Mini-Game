@@ -1,36 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2cb00obmhn3l"]
+[gd_scene load_steps=6 format=3 uid="uid://c2cb00obmhn3l"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ptxyt"]
-[ext_resource type="Script" path="res://level1/level_1.gd" id="2_f57in"]
-[ext_resource type="Texture2D" uid="uid://dx1ol2pn1vbnu" path="res://level1/level_1_background.png" id="3_clcs1"]
+[ext_resource type="PackedScene" uid="uid://lyh47ek8hgrb" path="res://level1/level_1.tscn" id="2_jj3qf"]
 [ext_resource type="PackedScene" uid="uid://kmd2kr5w4u8q" path="res://ui/panels.tscn" id="3_fvu05"]
 [ext_resource type="PackedScene" uid="uid://wugcu5pjp38i" path="res://level2/level_2.tscn" id="3_y5wm5"]
-[ext_resource type="PackedScene" uid="uid://bdoobp6pin4av" path="res://fisherman/fisherman.tscn" id="4_l1fe1"]
-[ext_resource type="PackedScene" uid="uid://cbcq0n8bkwkaw" path="res://spawner.tscn" id="5_v7dk2"]
-[ext_resource type="PackedScene" uid="uid://cf0muf2fwg40d" path="res://level1/small_fish_l_1.tscn" id="6_ldgyr"]
-[ext_resource type="PackedScene" uid="uid://5b6n7j5d3m51" path="res://level1/medium_fish_l_1.tscn" id="7_qbcvu"]
-[ext_resource type="PackedScene" uid="uid://dn3ovth2tbqo6" path="res://level1/big_fish_l_1.tscn" id="8_pawyr"]
-[ext_resource type="Texture2D" uid="uid://c83khtkssquwj" path="res://level1/shore.svg" id="9_2yiy2"]
-[ext_resource type="Texture2D" uid="uid://bwl1p2mgpb74" path="res://level1/water.svg" id="10_nj4rq"]
-[ext_resource type="PackedScene" uid="uid://blho12h52avuq" path="res://ui/hud.tscn" id="11_y1ivy"]
 [ext_resource type="AudioStream" uid="uid://dwgn134txud5f" path="res://level1/level_complete.wav" id="12_ljc0b"]
-
-[sub_resource type="PackedScene" id="PackedScene_hlkwg"]
-_bundled = {
-"conn_count": 5,
-"conns": PackedInt32Array(2, 0, 26, 25, 2, 0, 0, 2, 0, 28, 27, 2, 0, 0, 2, 0, 30, 29, 2, 0, 0, 2, 0, 32, 31, 2, 0, 0, 3, 0, 34, 33, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("Level1", "script", "small_fish_to_catch", "medium_fish_to_catch", "level", "Node2D", "Background", "position", "texture", "Sprite2D", "Fisherman", "Spawner", "wait_time", "fishes", "big_fish_scene", "Shore", "show_behind_parent", "Water", "z_index", "HUD", "offset_right", "offset_bottom", "LevelCompletedSound", "stream", "AudioStreamPlayer", "_on_fisherman_caught_large_fish", "caught_large_fish", "_on_fisherman_caught_medium_fish", "caught_medium_fish", "_on_fisherman_caught_small_fish", "caught_small_fish", "_on_fisherman_clicks_to_pull_changed", "clicks_to_pull_changed", "_on_spawner_fish_spawned", "fish_spawned"),
-"node_count": 8,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 5, 0, -1, 3, 1, 0, 2, 1, 3, 1, 1, 4, 0, 0, 9, 6, -1, 2, 7, 2, 8, 3, 0, 0, 0, 2147483647, 10, 4, 1, 7, 5, 0, 0, 0, 2147483647, 11, 6, 3, 12, 7, 13, 8, 14, 9, 0, 0, 0, 9, 15, -1, 3, 16, 10, 7, 11, 8, 12, 0, 0, 0, 9, 17, -1, 3, 18, 1, 7, 13, 8, 14, 0, 0, 0, 2147483647, 19, 15, 2, 20, 16, 21, 17, 0, 0, 0, 24, 22, -1, 1, 23, 18, 0),
-"variants": [ExtResource("2_f57in"), 1, Vector2(960, 540), ExtResource("3_clcs1"), ExtResource("4_l1fe1"), Vector2(1729, 125), ExtResource("5_v7dk2"), 5.0, Array[PackedScene]([ExtResource("6_ldgyr"), ExtResource("7_qbcvu")]), ExtResource("8_pawyr"), true, Vector2(1770, 732), ExtResource("9_2yiy2"), Vector2(962, 744), ExtResource("10_nj4rq"), ExtResource("11_y1ivy"), 1920.0, 1080.0, ExtResource("12_ljc0b")],
-"version": 3
-}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ptxyt")
-levels = Array[PackedScene]([SubResource("PackedScene_hlkwg"), ExtResource("3_y5wm5")])
+levels = Array[PackedScene]([ExtResource("2_jj3qf"), ExtResource("3_y5wm5")])
 
 [node name="Panels" parent="." instance=ExtResource("3_fvu05")]
 offset_left = 610.0

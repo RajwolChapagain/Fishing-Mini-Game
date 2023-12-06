@@ -1,15 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://wugcu5pjp38i"]
+[gd_scene load_steps=7 format=3 uid="uid://wugcu5pjp38i"]
 
 [ext_resource type="PackedScene" uid="uid://lyh47ek8hgrb" path="res://level1/level_1.tscn" id="1_argad"]
 [ext_resource type="PackedScene" uid="uid://bs6f74nv1afax" path="res://level2/small_fish_l_2.tscn" id="2_6h40w"]
 [ext_resource type="PackedScene" uid="uid://bnlybx8qud2wt" path="res://level2/medium_fish_l_2.tscn" id="3_htmr0"]
 [ext_resource type="PackedScene" uid="uid://cmatvjqjwu2e8" path="res://level2/big_fish_l_2.tscn" id="4_jowjc"]
+[ext_resource type="Texture2D" uid="uid://dusidxv8a1ka" path="res://level2/small_l2.png" id="5_grorh"]
+[ext_resource type="Texture2D" uid="uid://dcegp1liblagu" path="res://level2/medium_l2.png" id="6_ftpk3"]
 
 [node name="Level2" instance=ExtResource("1_argad")]
 level = 2
-small_fish_to_catch = 2
-medium_fish_to_catch = 2
+small_fish_to_catch = 6
+medium_fish_to_catch = 6
 
 [node name="Spawner" parent="." index="2"]
 fishes = Array[PackedScene]([ExtResource("2_6h40w"), ExtResource("3_htmr0")])
 big_fish_scene = ExtResource("4_jowjc")
+
+[node name="HUD" parent="." index="5"]
+small_fish_sprite = ExtResource("5_grorh")
+medium_fish_sprite = ExtResource("6_ftpk3")
+
+[node name="TextureRect" parent="HUD/SmallFishContainer" index="2"]
+texture = ExtResource("5_grorh")
+
+[node name="MediumFishContainer" parent="HUD" index="1"]
+offset_left = 170.0
+offset_right = 354.0
+
+[node name="TextureRect" parent="HUD/MediumFishContainer" index="2"]
+texture = ExtResource("6_ftpk3")
+
+[editable path="HUD"]

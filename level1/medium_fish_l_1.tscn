@@ -7,7 +7,7 @@
 size = Vector2(66, 21)
 
 [node name="MediumFishL1" groups=["medium_fish"] instance=ExtResource("1_sk5c2")]
-clicks_to_catch = 10
+clicks_to_catch = 3
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_3ena5")
